@@ -1,4 +1,5 @@
 ﻿using TaskFlow.Domain.Common;
+using TaskFlow.Domain.Events;
 using static TaskFlow.Domain.Enums.Enums;
 
 namespace TaskFlow.Domain.Entities;
@@ -19,5 +20,37 @@ public class TaskItem : Auditable, ISoftDeletable
 
     private readonly List<Comment> _comments = [];
     public IReadOnlyCollection<Comment> Comments => _comments.AsReadOnly();
+
+    #region Domain Event Methods
+    public void AssignTo(string userId)
+    {
+        AssignedToUserId = userId;
+        AddDomainEvent(new TaskAssignedEvent(this, userId));
+    }
+
+    public void ChangeStatus(TaskItemStatus newStatus)
+    {
+        var oldStatus = Status;
+        Status = newStatus;
+
+        if (newStatus == TaskItemStatus.Done)
+            AddDomainEvent(new TaskCompletedEvent(this));
+
+    }
+
+    public Comment AddComment(string content, string userId)
+    {
+        Comment comment = new()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = content,
+            UserId = userId,
+            TaskItemId = Id
+        };
+
+        _comments.Add(comment);
+        return comment;
+    }
+    #endregion
 
 }
