@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TaskFlow.API/TaskFlow.API/TaskFlow.API.csproj" />
+    <Project Path="src/TaskFlow.WEB/TaskFlow.WEB/TaskFlow.WEB.csproj" />
+  </Folder>
+  <Folder Name="/src/Core/">
+    <Project Path="src/Core/TaskFlow.Application/TaskFlow.Application/TaskFlow.Application.csproj" />
+    <Project Path="src/Core/TaskFlow.Domain/TaskFlow.Domain/TaskFlow.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/External/">
+    <Project Path="src/External/TaskFlow.Infrastructure/TaskFlow.Infrastructure/TaskFlow.Infrastructure.csproj" />
+    <Project Path="src/External/TaskFlow.Persistence/TaskFlow.Persistence/TaskFlow.Persistence.csproj" />
+    <Project Path="src/External/TaskFlow.Presentation.API/TaskFlow.Presentantion.API/TaskFlow.Presentantion.API.csproj" />
+    <Project Path="src/External/TaskFlow.Presentation.WEB/TaskFlow.Presentation.WEB/TaskFlow.Presentation.WEB.csproj" />
+  </Folder>
+  <Folder Name="/test/" />
+</Solution>
