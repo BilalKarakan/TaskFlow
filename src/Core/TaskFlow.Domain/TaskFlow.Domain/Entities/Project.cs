@@ -11,9 +11,9 @@ public class Project : Auditable, ISoftDeletable
     public ProjectStatus Status { get; set; } = ProjectStatus.Planning;
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
-    public bool IsDeleted { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public DateTime? DeletedDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public string? DeletedBy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public bool IsDeleted { get; set; }
+    public DateTime? DeletedDate { get; set; }
+    public string? DeletedBy { get; set; }
 
     private readonly List<TaskItem> _tasks = [];
     public IReadOnlyCollection<TaskItem> Tasks => _tasks.AsReadOnly();
